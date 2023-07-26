@@ -24,7 +24,7 @@ public class GeneralConfigBean {
 	toppings[] capricciosa = { toppings.Tomato, toppings.Cheese, toppings.Olives };
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Food margherita() {
 		Pizza p = new Pizza(false, margherita);
 		p.setName("Margherita");
@@ -34,7 +34,7 @@ public class GeneralConfigBean {
 	}
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 		public Food hawaian() {
 		Pizza p = new Pizza(false, hawaian);
 		p.setName("Hawaian");
@@ -44,7 +44,7 @@ public class GeneralConfigBean {
 	}
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Food capricciosa() {
 		Pizza p = new Pizza(false, capricciosa);
 		p.setName("Capricciosa");
@@ -54,7 +54,7 @@ public class GeneralConfigBean {
 	}
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Food water() {
 		Drinks water = new Drinks();
 		water.setName("Water");
@@ -64,7 +64,7 @@ public class GeneralConfigBean {
 	}
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Food coke() {
 		Drinks coke = new Drinks();
 		coke.setName("Coke");
@@ -74,7 +74,7 @@ public class GeneralConfigBean {
 	}
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Food beer() {
 		Drinks beer = new Drinks();
 		beer.setName("Beer");
@@ -84,7 +84,7 @@ public class GeneralConfigBean {
 	}
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Products notebook() {
 		Merch notebook = new Merch();
 		notebook.setName("Notebook");
@@ -93,7 +93,7 @@ public class GeneralConfigBean {
 	}
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Products skirt() {
 		Merch skirt = new Merch();
 		skirt.setName("Skirt");
@@ -102,7 +102,7 @@ public class GeneralConfigBean {
 	}
 	
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Food topping(toppings t) {
 		Toppings top = new Toppings(t);
 		top.setName(top.getToppings().toString());
@@ -135,14 +135,14 @@ public class GeneralConfigBean {
 	}
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Table table(int id, int maxCust, boolean isBooked) {
 		Table table = new Table(id, maxCust, isBooked);
 		return table;
 	}
 
 	@Bean
-	@Scope("prototype")
+	@Scope("singleton")
 	public Orders order(int id, Table table, int customers) {
 		Orders orders = new Orders(id, table, new HashMap<Products, String>(), customers, LocalDateTime.now().getHour(),
 			LocalDateTime.now().getMinute(), 0.00);
